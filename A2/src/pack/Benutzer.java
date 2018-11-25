@@ -1,6 +1,8 @@
 package pack;
 
-public class Benutzer {
+import java.io.Serializable;
+
+public class Benutzer implements Serializable{
 	String userId;
 	char[] passWort;
 	
@@ -12,8 +14,8 @@ public class Benutzer {
 		passWort = pw;
 	}
 	
-	boolean equals(Benutzer benutzer) {
-		if (userId == benutzer.userId && String.copyValueOf(passWort) == String.copyValueOf(benutzer.passWort))
+	public boolean equals(Object benutzer) {
+		if (userId.equals(((Benutzer) benutzer).userId) && String.copyValueOf(passWort).equals(String.copyValueOf(((Benutzer) benutzer).passWort)))
 			return true;
 		return false;
 	}
